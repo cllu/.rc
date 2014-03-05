@@ -1,0 +1,23 @@
+" Use space instead of tab
+set expandtab
+set smarttab
+
+" 1 tab = 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" auto indent code
+set autoindent
+set smartindent
+
+set nu
+syntax on
+
+"set verbose=20
+
+colorscheme Tomorrow-Night-Bright
+
+" set space and backspace to page down/up
+nnoremap <space> 10jzz
+nnoremap <backspace> 10kzz
+

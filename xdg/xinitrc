@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# some common startup script is in xprofile
+#[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
+
+# start xscreensaver
+#if command -v xscreensaver >/dev/null 2>&1; then
+#    xscreensaver -no-splash &
+#fi
+
+# workaround for java gui problem
+if command -v wmname >/dev/null 2>&1; then
+    wmname LG3D
+fi
+
+# start awesome
+#exec /usr/bin/awesome
+exec cinnamon-session

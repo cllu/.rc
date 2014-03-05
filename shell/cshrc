@@ -1,0 +1,49 @@
+# csh is the default shell in my department servers.
+
+umask 002
+limit coredumpsize 0
+setenv EDITOR vim
+setenv MAIL /usr/spool/mail/$USER
+
+if ($?prompt) then
+    set notify
+    set history = 200
+    set mail=$MAIL
+    set prompt="%n@`hostname| sed -e s/.se.cuhk.edu.hk//`:%~$ "
+endif
+
+#alias rm 'rm -i'
+#alias cp 'cp -i'
+#alias mv 'mv -i'
+
+#alias lpr 'lpr -Pse709a -o sides=two-sided-long-edge '
+
+# tweak some key problems.
+bindkey '\e[1~' beginning-of-line #HOME
+bindkey '\e[3~' delete-char       #DELETE
+bindkey '\e[4~' end-of-line       #END
+
+# set locale
+setenv LC_CTYPE en_US.UTF-8
+
+#setenv C_INCLUDE_PATH $HOME/.local/include
+#setenv CPLUS_INCLUDE_PATH $HOME/.local/include
+#setenv LD_LIBRARY_PATH $HOME/.local/lib:$HOME/.local/lib64
+
+# MYSQL
+#setenv PATH $HOME/.local/opt/mysql/bin:$PATH
+#setenv MYSQL_HOME $HOME/.mysql
+
+# MAVEN
+#setenv PATH $HOME/.local/opt/apache/maven/bin:$PATH
+#setenv MVN_HOME $HOME/.local/opt/apache/maven
+
+#setenv LD_LIBRARY_PATH $HOME/.local/opt/mysql/lib:$LD_LIBRARY_PATH
+
+# Hadoop setup, this is necessary since ssh will ignore the zsh setting.
+# JDK
+#setenv PATH $HOME/.local/opt/java/jdk1.7/bin:$PATH
+#setenv JAVA_HOME $HOME/.local/opt/java/jdk1.7
+#setenv HADOOP_PREFIX "$HOME/.local/opt/apache/hadoop"
+#setenv HADOOP_CONF_DIR "$HOME/hadoop/nodes/`hostname| sed -e s/.se.cuhk.edu.hk//`/conf"
+#setenv HADOOP_LOG_DIR "$HOME/hadoop/logs"

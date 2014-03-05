@@ -1,0 +1,96 @@
+# colors
+if ls -F --color=auto >&/dev/null; then
+    eval `dircolors -b`
+    alias ls="ls --color=auto -F"
+else
+    alias ls="ls -F"
+fi
+alias grep='grep --color=auto'
+
+alias cd..='cd ..'
+alias cd...='cd ../..'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias l='ls -l'
+alias ll='ls -l'
+alias lsa='ls -alh'
+
+# editor default to emacs
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+alias eckill='emacsclient -e "(kill-emacs)"'
+alias ecdaemon='emacs --daemon'
+alias ecreload='emacsclient -e "(load-file \"~/.emacs.d/init.el\")"'
+
+alias vi='vim'
+
+# git alias
+alias ga='git add '
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias gp='git push'
+alias gmv='git mv'
+alias grm='git rm'
+alias gca='git commit -am '
+alias gcm='git commit -m '
+
+# handy stuff
+alias c="clear"
+alias h='head'
+alias t='tail'
+alias i='ipython'
+alias i3='ipython3'
+alias psg='ps aux|grep'
+
+alias tree='tree -I__pycache__'
+
+alias httphere="python -m SimpleHTTPServer"
+
+# make a new directory and change pwd to it
+function mcd()
+{
+  test -e $1 || mkdir $1; cd $1;
+}
+
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xjf $1     ;;
+            *.tar.gz)    tar xzf $1     ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar e $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xf $1      ;;
+            *.tbz2)      tar xjf $1     ;;
+            *.tgz)       tar xzf $1     ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)     echo "'$1' cannot be extracted via extract()" ;;
+            esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+
+utf8() {
+    iconv -f ISO-8859-1 -t UTF-8 $1 > $1.tmp
+    rm $1
+    mv $1.tmp $1
+}
+
+
+mkdir4sbt() {
+  mkdir -p src/{main,test}/{java,resources,scala}
+  mkdir lib project target
+
+  echo 'name := "ScalaProject"
+
+version := "0.0.1"
+
+scalaVersion := "2.10.3"' > build.sbt
+}

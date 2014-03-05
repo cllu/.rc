@@ -1,0 +1,2 @@
+#This is used to get out of default csh on department servers.
+exec /bin/zsh
