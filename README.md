@@ -1,7 +1,17 @@
 This is my config file for various applications.
 
-## Dependencies ##
-- python2
+## Applications
+- awesome, the window manager
+- curl,
+- emacs
+- git
+- gtk, theme
+- shells, including csh/bash/zsh
+- tmux
+- vim
+- xdg, including key remapping, xinitrc etc.
+- xscreensaver
+- xterm
 
 ### Fonts ###
 The following application rely on fonts
@@ -9,20 +19,14 @@ The following application rely on fonts
 - gtk     -> Lucida Grande
 - xterm   -> Monaco
 
-The fonts repository is located at [here](https://cllu@bitbucket.org/cllu/fonts.git)
-
 ### GTK theme ###
 - gtk2-engines-oxygen, oxygen theme for gtk2 applications, such as Google Chrome
 - gtk3-engines-oxygen, oxygen theme for gtk3 applications, such as evince, gedit
 - kde-style-oxygen, oxygen theme for qt applications
 
+## Notes
 
-## TODO ##
-- add kde config here
+Compile and install emacs from source:
 
-Emacs
-
-Compile and install:
-
-    ./configure --prefix=$HOME/.usr --with-gif=no --with-x-toolkit=lucid
-    make && make install
+    $ ./configure --prefix=$HOME/.usr --with-gif=no --with-x-toolkit=lucid
+    $ make && make install
