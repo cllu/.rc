@@ -1,4 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
+
+from __future__ import print_function
 
 import os
 import sys
@@ -11,15 +13,15 @@ backup_dir = os.path.join(RCHOME, '.backup' + strftime("_%b%d_%H:%M:%S", gmtime(
 
 app_config = {
     'awesome': {
-        '$HOME/.config/awesome': '$RCHOME/awesome'    
-    }, 
+        '$HOME/.config/awesome': '$RCHOME/awesome'
+    },
     'bash': {
         '$HOME/.bashrc': '$RCHOME/shell/bashrc',
         "$HOME/.aliases": "$RCHOME/shell/aliases",
     },
     'bin': {
-        '$HOME/.bin': '$RCHOME/bin'    
-    }, 
+        '$HOME/.bin': '$RCHOME/bin'
+    },
     'csh': {
         # used to get rid of csh in seis machines.
         '$HOME/.login': '$RCHOME/shell/login',
@@ -77,21 +79,21 @@ def remove(path):
     found = False
 
     if os.path.islink(path):
-        print path, "link has already been there, just delete it."
+        print(path, "link has already been there, just delete it.")
         os.remove(path)
         found = True
         return
     elif os.path.isfile(path):
-        print path, "file has already been there."
+        print(path, "file has already been there.")
         found = True
     elif os.path.isdir(path):
-        print path, "folder has already been there."
+        print(path, "folder has already been there.")
         found = True
     else:
-        print path, "not found."
+        print(path, "not found.")
 
     if found:
-        print "move it to", backup_dir
+        print("move it to", backup_dir)
         if not os.path.isdir(backup_dir):
             os.makedirs(backup_dir)
         shutil.move(path, backup_dir)
@@ -99,30 +101,30 @@ def remove(path):
 def is_installed(app):
     if app not in app_config.keys():
         return False
-    
+
     installed = True
     for path, rcfile in app_config[app].items():
         path = path.replace('$HOME', HOME)
         rcfile = rcfile.replace('$RCHOME', RCHOME)
-        
+
         if os.path.realpath(path) != rcfile:
             installed = False
-            
+
     return installed
-   
+
 
 def install(apps):
     for app in apps:
         if is_installed(app):
-            print app, 'is already installed, skip.'
+            print(app, 'is already installed, skip.')
             continue
-        
+
         if app in app_config.keys():
-            print "configuring ", app
+            print("configuring ", app)
         else:
-            print app, 'configuration not found, continuing...'
+            print(app, 'configuration not found, continuing...')
             continue
-        
+
         for path,rcfile in app_config[app].items():
             path = path.replace('$HOME', HOME)
             rcfile = rcfile.replace('$RCHOME', RCHOME)
@@ -133,12 +135,12 @@ def install(apps):
 def check_status(apps):
     for app in apps:
         installed = is_installed(app)
-        print '%15s is%s installed' % (app, ' not' if not installed else '')
+        print('%15s is%s installed' % (app, ' not' if not installed else ''))
 
 def main():
     if len(sys.argv) < 2:
         sys.exit("rc.py status|install[ all|<app list>]")
-    
+
     if sys.argv[1] == 'install':
         if sys.argv[2] == 'all':
             apps = app_config.keys()
@@ -148,7 +150,7 @@ def main():
     elif sys.argv[1] == 'status':
         apps = app_config.keys()
         check_status(apps)
-           
+
 
 if __name__ == '__main__':
     main()
