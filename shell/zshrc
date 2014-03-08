@@ -45,15 +45,57 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-
-# default printer
-alias lpr='lpr -Pse709a -o sides=two-sided-long-edge '
+export USR="$HOME/.usr"
 
 # custom binary file path
 export PATH="$PATH:$HOME/.bin"
-export PATH="$PATH:$HOME/.usr/bin"
+export PATH="$PATH:$USR/bin"
 
+# include/lib/man
+export C_INCLUDE_PATH="$USR/include:$C_INCLUDE_PATH"
+export CPLUS_INCLUDE_PATH="$USR/include:$CPLUS_INCLUDE_PATH"
+export LD_LIBRARY_PATH="$USR/lib:/usr/lib64:/usr/lib:/usr/local/lib:$LD_LIBRARY_PATH"
+export MANPATH="$USR/share/man:$MANPATH"
+
+# set JAVA_HOME
+java_home_alt=(
+    "/opt/java"        # archlinux aur
+    "/usr/java/latest" # centos
+    "$USR/opt/java"    # custom installation
+)
+for dir in $java_home_alt; do
+    [[ -d $dir ]] && export JAVA_HOME=$dir && break;
+done
+# ant and maven
+[[ -d $USR/opt/apache-ant  ]] && export ANT_HOME="$USR/opt/apache-ant"
+[[ -d $USR/opt/apache-maven ]] && export M2_HOME="$USR/opt/apache-maven"
 export MAVEN_OPTS="-Xmx4096M -Xss1024M -XX:MaxPermSize=4096M -XX:+CMSClassUnloadingEnabled"
+
+# Python virtualenv
+export PATH="$USR/opt/py3env/bin:$PATH"
+[[ -d $USR/opt/py2env ]] && export PATH="$USR/opt/py2env/bin:$PATH"
+# Python NLTK data
+export NLTK_DATA="$USR/share/nltk_data/"
+
+# Perl
+export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:$USR/opt/perl5"
+export PERL_MB_OPT="--install_base $USR/opt/perl5"
+export PERL_MM_OPT="INSTALL_BASE=$USR/opt/perl5"
+export PERL5LIB="$USR/opt/perl5/lib/perl5:$PERL5LIB"
+export PATH="$USR/opt/perl5/bin:$PATH"
+
+# Android SDK on archlinux
+export PATH="/opt/android-sdk/tools:$PATH"
+
+# Google Cloud SDK
+export CLOUDSDK_PYTHON="/usr/bin/python2"
+export PATH="/home/cllu/.usr/opt/google-cloud-sdk/bin:$PATH"
+# gsutil
+export PATH="$USR/opt/google/gsutil:$PATH"
+
+
 
 # aliases
 . ~/.aliases
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

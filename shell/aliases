@@ -12,6 +12,7 @@ alias cd...='cd ../..'
 
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 
 alias l='ls -l'
 alias ll='ls -l'
@@ -47,7 +48,7 @@ alias psg='ps aux|grep'
 
 alias tree='tree -I__pycache__'
 
-alias httphere="python -m SimpleHTTPServer"
+alias httphere="python3 -m http.server"
 
 # make a new directory and change pwd to it
 function mcd()
