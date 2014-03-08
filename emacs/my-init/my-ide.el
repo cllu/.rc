@@ -38,6 +38,9 @@
 
 ;; zshrc
 (add-to-list 'auto-mode-alist '("zshrc\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("alias\\'" . shell-script-mode))
+;; set indentation to 2 spaces
+(setq sh-basic-offset 2)
 
 ;; php
 (require 'php-mode)
