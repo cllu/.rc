@@ -20,6 +20,9 @@
 ;; css two spaces indent
 (setq css-indent-offset 2)
 
+;; javascript
+(setq js-indent-level 2)
+
 ;; c indent style
 (setq-default c-basic-offset 4)
 
@@ -182,3 +185,14 @@
 (ido-ubiquitous-mode t)
 
 (require 'ag)
+
+;; nginx
+(require 'nginx-mode)
+
+(add-to-list 'load-path "~/.emacs.d/package/js2-mode")
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(setq-default js2-basic-offset 2)
+
+;; editor-config
+(load "editorconfig")

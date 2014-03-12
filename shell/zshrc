@@ -77,6 +77,12 @@ export PATH="$USR/opt/py3env/bin:$PATH"
 # Python NLTK data
 export NLTK_DATA="$USR/share/nltk_data/"
 
+# Ruby
+export PATH="$HOME/.gem/ruby/2.1.0/bin:$PATH"
+## Grunt would like to know where my Chrome is
+alias google-chrome=google-chrome-stable
+export CHROME_BIN=/usr/bin/google-chrome-stable
+
 # Perl
 export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:$USR/opt/perl5"
 export PERL_MB_OPT="--install_base $USR/opt/perl5"

@@ -79,7 +79,7 @@ alias i='ipython'
 alias i3='ipython3'
 alias psg='ps aux|grep'
 
-alias tree='tree -I__pycache__'
+#alias tree='tree -I__pycache__'
 
 alias httphere="python3 -m http.server"
 
