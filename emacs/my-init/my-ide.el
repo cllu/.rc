@@ -124,6 +124,7 @@
 (require 'haml-mode)
 (require 'sass-mode)
 (require 'scss-mode)
+(setq-default scss-compile-at-save nil)
 
 ;; scala mode
 (add-to-list 'load-path "~/.emacs.d/package/scala-mode2")
