@@ -16,7 +16,7 @@ if [ -f ~/.Xresources ]; then
     xrdb $HOME/.Xresources
 fi
 
-# remap Caps Lock key
+# remap keys
 if [ -f ~/.Xmodmap ]; then
     xmodmap $HOME/.Xmodmap
 fi

@@ -42,10 +42,6 @@ app_config = {
     'R': {
         '$HOME/.Renviron': '$RCHOME/R/Renviron'
     },
-    'ssh': {
-        # note that .ssh folder and the config file should have strict permissions.
-        '$HOME/.ssh': '$RCHOME/ssh'
-    },
     'tmux': {
         '$HOME/.tmux.conf': '$RCHOME/tmux/tmux.conf'
     },
