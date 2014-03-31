@@ -46,14 +46,6 @@
   (add-to-list 'auto-mode-alist '("\\.\\(php\\|inc\\)$" . php-mode))
   (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode)))
 
-;; ebib
-(autoload 'ebib "ebib" "Ebib, a BibTeX database manager." t)
-(setq ebib-index-display-fields (quote (title)))
-(setq ebib-index-window-size 15)
-(setq ebib-layout 60)
-(setq ebib-timestamp-format "%Y-%m-%d %A")
-(setq ebib-use-timestamp t)
-
 ;; set up parenthesis for paren completion
 (when (require 'parenthesis nil t)
   ;; in latex writing, ()[]{}$$ always comes together

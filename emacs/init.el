@@ -15,8 +15,10 @@
       (append
        '(ag
          evil             ; eval for vim keybindings
+         goto-chg
          ido-ubiquitous
          magit            ; git
+         parenthesis
          smex             ; ido-like tool
          ;tomorrow-theme   ; theme
          yasnippet

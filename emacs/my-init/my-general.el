@@ -12,7 +12,25 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; display line and column number
 (column-number-mode t)
+
+;;;; linum setting
+;(setq linum-format "%d ")
+(unless window-system
+  (add-hook 'linum-before-numbering-hook
+            (lambda ()
+              (setq-local linum-format-fmt
+                          (let ((w (length (number-to-string
+                                            (count-lines (point-min) (point-max))))))
+                            (concat "%" (number-to-string w) "d "))))))
+(defun linum-format-func (line)
+   (propertize (format linum-format-fmt line) 'face 'linum)
+   )
+(unless window-system
+  (setq linum-format 'linum-format-func))
+
 (global-linum-mode t)
+;;;; end linum setting
+
 ;; disable linum in certain modes.
 (setq linum-disabled-modes-list '(shell-mode eshell-mode complilation-mode))
 (defun linum-on()
@@ -47,12 +65,12 @@
 ;; backup file config
 (make-directory "~/.emacs.d/.backups" t)
 (setq
-   backup-by-copying t
-   backup-directory-alist '(("." . "~/.emacs.d/.backups"))
-   delete-old-versions t
-   kept-new-versions 6
-   kept-old-versions 2
-   version-control t)
+ backup-by-copying t
+ backup-directory-alist '(("." . "~/.emacs.d/.backups"))
+ delete-old-versions t
+ kept-new-versions 6
+ kept-old-versions 2
+ version-control t)
 ;; auto save file config
 (setq auto-save-list-file-prefix "~/.emacs.d/.auto-save-list/.saves-")
 (make-directory "~/.emacs.d/.autosaves" t)
@@ -70,11 +88,11 @@
   (let ((current-process (ignore-errors (get-buffer-process (current-buffer)))))
     (when current-process
       (set-process-sentinel current-process
-			    (lambda (watch-process change-state)
-			      (when (string-match "\\(finished\\|exited\\)" change-state)
-				(kill-buffer (process-buffer watch-process))))))))
-;(add-hook 'gdb-mode-hook 'kill-buffer-when-exit)
-;(add-hook 'term-mode-hook 'kill-buffer-when-exit)
+                            (lambda (watch-process change-state)
+                              (when (string-match "\\(finished\\|exited\\)" change-state)
+                                (kill-buffer (process-buffer watch-process))))))))
+                                        ;(add-hook 'gdb-mode-hook 'kill-buffer-when-exit)
+                                        ;(add-hook 'term-mode-hook 'kill-buffer-when-exit)
 (add-hook 'shell-mode-hook 'kill-buffer-when-exit)
 
 ;; display matched parent
@@ -97,5 +115,5 @@
 
 (add-to-list 'load-path "~/.emacs.d/packages/tomorrow-theme")
 (require 'color-theme-tomorrow)
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/packages/tomorrow-theme")
+                                        ;(add-to-list 'custom-theme-load-path "~/.emacs.d/packages/tomorrow-theme")
 (load-theme 'tomorrow-night-bright t)
