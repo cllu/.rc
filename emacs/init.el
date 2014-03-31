@@ -16,9 +16,9 @@
        '(ag
          evil             ; eval for vim keybindings
          ido-ubiquitous
-         magit
-         smex
-         tomorrow-theme   ; theme
+         magit            ; git
+         smex             ; ido-like tool
+         ;tomorrow-theme   ; theme
          yasnippet
 
          auctex           ; LaTex related
@@ -40,12 +40,12 @@
 (el-get 'sync my-packages)
 
 (add-to-list 'load-path "~/.emacs.d/my-init")  ; my init files
-(add-to-list 'load-path "~/.emacs.d/package")    ; third-party package
+(add-to-list 'load-path "~/.emacs.d/packages")    ; third-party package
 (require 'my-general)  ; general settings, overall looking
-;(require 'my-org)      ; org-mode setting
 (require 'my-ide)      ; CEDET, ECB, Auctex, drupal, etc.
 ;(require 'my-calendar)
 ;(require 'my-keybinding)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

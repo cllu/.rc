@@ -4,9 +4,9 @@ el-get/*
 !el-get/init-files/
 !el-get/recipes/
 
-autosave/
-backup/
-auto-save-list/
+.autosave/
+.backup/
+.auto-save-list/
 
 .saved-places
 .smex-items

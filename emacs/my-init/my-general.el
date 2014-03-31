@@ -54,6 +54,7 @@
    kept-old-versions 2
    version-control t)
 ;; auto save file config
+(setq auto-save-list-file-prefix "~/.emacs.d/.auto-save-list/.saves-")
 (make-directory "~/.emacs.d/.autosaves" t)
 (setq auto-save-file-name-transforms
       '((".*" "~/.emacs.d/.autosaves/\\1" t)))
@@ -93,3 +94,8 @@
 (setq save-place-file "~/.emacs.d/.saved-places")
 (require 'saveplace)
 (setq-default save-place t)
+
+(add-to-list 'load-path "~/.emacs.d/packages/tomorrow-theme")
+(require 'color-theme-tomorrow)
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/packages/tomorrow-theme")
+(load-theme 'tomorrow-night-bright t)
