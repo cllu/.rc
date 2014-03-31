@@ -1,2 +1,14 @@
 elpa
 el-get
+autosave/
+backup/
+auto-save-list/
+saved-places
+
+.smex-items
+
+# ignore all the compile files
+emacs/package/auctex/
+
+# emacs lisp temporal file
+*.elc

@@ -1,13 +1,3 @@
 ssh/known_hosts
 vim/.netrwhist
 .backup*
-emacs/autosave/
-emacs/backup/
-emacs/auto-save-list/
-emacs/saved-places
-
-# ignore all the compile files
-emacs/package/auctex/
-
-# emacs lisp temporal file
-*.elc
