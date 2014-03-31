@@ -21,6 +21,7 @@
          parenthesis
          smex             ; ido-like tool
          ;tomorrow-theme   ; theme
+         visual-regexp-steroids ; regex real time
          yasnippet
 
          auctex           ; LaTex related
