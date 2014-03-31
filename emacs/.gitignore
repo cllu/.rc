@@ -1,14 +1,19 @@
-elpa
-el-get
+# track only init-files and recipes folder
+!el-get/
+el-get/*
+!el-get/init-files/
+!el-get/recipes/
+
 autosave/
 backup/
 auto-save-list/
-saved-places
 
+.saved-places
 .smex-items
+ac-comphist.dat
 
-# ignore all the compile files
-emacs/package/auctex/
+# jedi
+.python-environments
 
 # emacs lisp temporal file
 *.elc

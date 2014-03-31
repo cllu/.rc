@@ -39,29 +39,24 @@
 (setq user-mail-address "hi@chunlianglyu.com")
 (setq user-full-name "Chunliang LYU")
 
-;; turn ido mode on
-(ido-mode 1)
-
 ;; save bookmarks in .emacs.d directory
-(setq bookmark-default-file "~/.emacs.d/bookmarks")
+(setq bookmark-default-file "~/.emacs.d/.bookmarks")
 ;; save all semantic db files into .emacs.d
-(setq semanticdb-default-save-directory "~/.emacs.d/semantic")
-;; TODO, need tweak.
-(make-directory "~/.emacs.d/semantic" t)
-(make-directory "~/.emacs.d/autosave" t)
-(make-directory "~/.emacs.d/backup" t)
-(make-directory "~/.emacs.d/saveplace" t)
+(make-directory "~/.emacs.d/.semantic" t)
+(setq semanticdb-default-save-directory "~/.emacs.d/.semantic")
 ;; backup file config
+(make-directory "~/.emacs.d/.backups" t)
 (setq
    backup-by-copying t
-   backup-directory-alist '(("." . "~/.emacs.d/backup"))
+   backup-directory-alist '(("." . "~/.emacs.d/.backups"))
    delete-old-versions t
    kept-new-versions 6
    kept-old-versions 2
    version-control t)
 ;; auto save file config
+(make-directory "~/.emacs.d/.autosaves" t)
 (setq auto-save-file-name-transforms
-      '((".*" "~/.emacs.d/autosave/\\1" t)))
+      '((".*" "~/.emacs.d/.autosaves/\\1" t)))
 
 ;; Making buffer names unique
 (require 'uniquify)
@@ -88,26 +83,6 @@
 ;; auto reload file if modified out from emacs.
 (global-auto-revert-mode)
 
-;; set up theme, the emacs24 way
-(if (< emacs-major-version 24)
-    ;; older emacs need color-theme
-    (progn
-      (add-to-list 'load-path "~/.emacs.d/package/color-theme")
-      (add-to-list 'load-path "~/.emacs.d/package/tomorrow-theme")
-      (require 'color-theme-tomorrow)
-      (color-theme-initialize)
-      (color-theme-tomorrow-night-bright))
-  ;; the emacs 24 theme
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/package/tomorrow-theme")
-  (load-theme 'tomorrow-night-bright t))
-
-;; set up evil, this should be done after setting up themes,
-;; otherwise evil may change the cursor-color in-compatable with the theme.
-(add-to-list 'load-path "~/.emacs.d/package/evil")
-(require 'evil)
-(evil-mode 1)
-
-
 ;; follow version controled symbolic file
 (setq vc-follow-symlinks t)
 
@@ -115,6 +90,6 @@
 (setq ring-bell-function 'ignore)
 
 ;; remember the last place
-(setq save-place-file "~/.emacs.d/saved-places")
+(setq save-place-file "~/.emacs.d/.saved-places")
 (require 'saveplace)
 (setq-default save-place t)

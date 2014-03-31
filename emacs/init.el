@@ -13,20 +13,25 @@
 
 (setq my-packages
       (append
-       '(evil           ; eval for vim keybindings
+       '(ag
+         evil             ; eval for vim keybindings
+         ido-ubiquitous
          magit
          smex
-         tomorrow-theme ; theme
+         tomorrow-theme   ; theme
          yasnippet
 
-         yaml-mode      ; yaml
-         js2-mode       ; javascript
-         lua-mode       ; lua
-         markdown-mode  ; markdown
-         nginx-mode     ;
-         php-mode
-         sass-mode      ; sass
-         scala-mode2    ; scala
+         auctex           ; LaTex related
+         dockerfile-mode  ; Dockerfile
+         yaml-mode        ; yaml
+         js2-mode         ; javascript
+         lua-mode         ; lua
+         markdown-mode    ; markdown
+         nginx-mode       ; nginx config file
+         php-mode         ; php
+         jedi             ; Python
+         sass-mode        ; sass
+         scala-mode2      ; scala
 
          )
 
@@ -34,15 +39,11 @@
 
 (el-get 'sync my-packages)
 
-(el-get 'sync)
-
-;(add-to-list 'load-path "~/.emacs.d/my-init")  ; my init files
-
-;(require 'my-install)  ; some cutomization between different machine.
-;(require 'my-general)  ; general settings, overall looking
-;(require 'my-dired)    ; all dired settings
+(add-to-list 'load-path "~/.emacs.d/my-init")  ; my init files
+(add-to-list 'load-path "~/.emacs.d/package")    ; third-party package
+(require 'my-general)  ; general settings, overall looking
 ;(require 'my-org)      ; org-mode setting
-;(require 'my-ide)      ; CEDET, ECB, Auctex, drupal, etc.
+(require 'my-ide)      ; CEDET, ECB, Auctex, drupal, etc.
 ;(require 'my-calendar)
 ;(require 'my-keybinding)
 (custom-set-variables
