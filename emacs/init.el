@@ -15,6 +15,8 @@
       (append
        '(ag
          evil             ; eval for vim keybindings
+         fiplr
+         flycheck
          goto-chg
          ido-ubiquitous
          magit            ; git
