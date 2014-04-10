@@ -13,3 +13,10 @@
 (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+
+
+;;; keybinding
+;; buffer
+(define-key evil-normal-state-map "gb" 'ido-switch-buffer)
+;; find file in project, need helm and helm-ls-git
+(define-key evil-normal-state-map "gp" 'helm-ls-git-ls)

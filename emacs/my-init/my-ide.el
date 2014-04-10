@@ -1,6 +1,5 @@
 ;; Programming Environment.
 ;; also include AUCTex config
-(provide 'my-ide)
 
 ;; tabs are evil
 (setq-default indent-tabs-mode nil)
@@ -90,3 +89,13 @@
 
 ;; editor-config
 (load "editorconfig")
+
+;; newline-and-indent
+(defun set-newline-and-indent ()
+  (local-set-key (kbd "RET") 'newline-and-indent))
+(add-hook 'python-mode-hook 'set-newline-and-indent)
+(add-hook 'html-mode-hook 'set-newline-and-indent)
+(add-hook 'css-mode-hook 'set-newline-and-indent)
+(add-hook 'javascript-mode-hook 'set-newline-and-indent)
+
+(provide 'my-ide)

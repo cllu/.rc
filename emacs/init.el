@@ -15,9 +15,11 @@
       (append
        '(ag
          evil             ; eval for vim keybindings
-         fiplr
+         ;fiplr
          flycheck
          goto-chg
+         helm
+         helm-ls-git
          ido-ubiquitous
          magit            ; git
          parenthesis
