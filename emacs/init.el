@@ -15,6 +15,7 @@
       (append
        '(ag
          evil             ; eval for vim keybindings
+         evil-matchit
          ;fiplr
          flycheck
          goto-chg
