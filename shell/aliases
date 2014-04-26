@@ -28,7 +28,7 @@ alias ecreload='emacsclient -e "(load-file \"~/.emacs.d/init.el\")"'
 alias vi='vim'
 
 # git alias
-#alias ga='git add '
+alias ga='git add '
 alias gs='git status'
 alias gd='git diff'
 alias gl='git log'
@@ -37,39 +37,6 @@ alias gmv='git mv'
 alias grm='git rm'
 alias gca='git commit -am '
 alias gcm='git commit -m '
-ga() {
-  git add $1
-}
-greset() {
-  git reset HEAD $1
-}
-gdl() {
-  git diff $1
-}
-_gitadd () {
-  compadd `git status --short |cut -d ' ' -f3`
-}
-_gitdiff () {
-  compadd `git status --short |cut -d ' ' -f3`
-}
-_gitreset () {
-  compadd `git status --short |cut -d ' ' -f3`
-}
-#compdef _gitadd ga
-compdef _gitdiff gdl
-compdef _gitreset reset
-
-last_command_last_parameter() {
-  last_command=$history[$[HISTCMD-1]];
-  last_command_array=("${(s/ /)last_command}")
-  echo $last_command_array[-1];
-}
-gal() {
-  git add $(last_command_last_parameter)
-}
-gcl() {
-  git checkout $(last_command_last_parameter)
-}
 
 # handy stuff
 alias c="clear"
