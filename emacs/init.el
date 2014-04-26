@@ -16,12 +16,14 @@
        '(ag
          evil             ; eval for vim keybindings
          evil-matchit
+         evil-surround
          ;fiplr
          flycheck
          goto-chg
          helm
          helm-ls-git
          ido-ubiquitous
+         linum+
          magit            ; git
          parenthesis
          smex             ; ido-like tool
@@ -49,6 +51,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/my-init")  ; my init files
 (add-to-list 'load-path "~/.emacs.d/packages")    ; third-party package
+
+(require 'evil-relative-linum)
+
 (require 'my-general)  ; general settings, overall looking
 (require 'my-ide)      ; CEDET, ECB, Auctex, drupal, etc.
 ;(require 'my-calendar)
