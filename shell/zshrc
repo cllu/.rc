@@ -27,7 +27,7 @@ ZSH_THEME="gallois"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to disable command auto-correction.
 # DISABLE_CORRECTION="true"
@@ -78,6 +78,10 @@ source $ZSH/oh-my-zsh.sh
 
 ######################################################################
 
+autoload -Uz promptinit
+promptinit
+prompt adam1
+
 setopt histignorealldups sharehistory
 
 # leave background jobs alone
@@ -100,6 +104,23 @@ case $TERM in
     xterm*)
         precmd () {print -Pn "\e]0;%n@%m\a"}
         ;;
+esac
+
+case $TERM in
+  screen*)
+    precmd(){
+      # Restore tmux-title to 'zsh'
+      printf "\033kzsh\033\\"
+      # Restore urxvt-title to 'zsh'
+      print -Pn "\e]2;zsh:%~\a"
+    }
+    preexec(){
+      # set tmux-title to running program
+      printf "\033k$(echo "$1" | cut -d" " -f1)\033\\"
+      # set urxvt-title to running program
+      print -Pn "\e]2;zsh:$(echo "$1" | cut -d" " -f1)\a"
+    }
+    ;;
 esac
 
 export USR="$HOME/.usr"
