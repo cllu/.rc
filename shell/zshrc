@@ -174,9 +174,9 @@ done
 [[ -d $USR/opt/apache-maven ]] && export M2_HOME="$USR/opt/apache-maven"
 export MAVEN_OPTS="-Xmx4096M -Xss1024M -XX:MaxPermSize=4096M -XX:+CMSClassUnloadingEnabled"
 
-# Python virtualenv
-export PATH="$USR/opt/py3env/bin:$PATH"
+# Python virtualenv, we prefer to user python3
 [[ -d $USR/opt/py2env ]] && export PATH="$USR/opt/py2env/bin:$PATH"
+[[ -d $USR/opt/py3env ]] && export PATH="$USR/opt/py3env/bin:$PATH"
 # Python NLTK data
 export NLTK_DATA="$USR/share/nltk_data/"
 
