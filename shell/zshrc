@@ -194,7 +194,7 @@ export PERL5LIB="$USR/opt/perl5/lib/perl5:$PERL5LIB"
 export PATH="$USR/opt/perl5/bin:$PATH"
 
 # Android SDK on archlinux
-export PATH="/opt/android-sdk/tools:$PATH"
+export PATH="/opt/android-sdk/tools:/opt/android-sdk/platform-tools/:$PATH"
 
 # Google Cloud SDK
 export CLOUDSDK_PYTHON="/usr/bin/python2"
