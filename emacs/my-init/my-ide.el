@@ -99,3 +99,8 @@
 (add-hook 'javascript-mode-hook 'set-newline-and-indent)
 
 (provide 'my-ide)
+
+(defun json-prettify ()
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (mark) (point) "python -m json.tool" (buffer-name) t)))

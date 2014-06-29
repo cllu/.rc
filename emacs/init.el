@@ -37,6 +37,7 @@
          js2-mode         ; javascript
          lua-mode         ; lua
          markdown-mode    ; markdown
+         multi-web-mode
          nginx-mode       ; nginx config file
          php-mode         ; php
          jedi             ; Python
