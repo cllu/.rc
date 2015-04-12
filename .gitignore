@@ -1,3 +1,6 @@
 ssh/known_hosts
 vim/.netrwhist
 .backup*
+
+.idea
+*.iml

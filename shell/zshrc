@@ -1,18 +1,8 @@
-######################################################################
-# stuff from oh-my-zsh
-
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.rc/shell/oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="gallois"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -23,14 +13,8 @@ export ZSH=$HOME/.rc/shell/oh-my-zsh
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -40,18 +24,8 @@ DISABLE_AUTO_TITLE="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras supervisor systemd celery)
+# Path to your oh-my-zsh installation.
+plugins=(git git-extras supervisor systemd celery brew npm pip virturalenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,54 +34,8 @@ source $ZSH/oh-my-zsh.sh
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-######################################################################
-
-autoload -Uz promptinit
-promptinit
-prompt adam1
-
-
-############## zsh theme
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}["
-ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-
-virtualenv_info() {
-  [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
-
-#Customized git status, oh-my-zsh currently does not allow render dirty status before branch
-git_custom_status() {
-  local cb=$(current_branch)
-  if [ -n "$cb" ]; then
-    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-  fi
-}
-
-RPS1='%{$fg[green]%}$(virtualenv_info)%{$reset_color%}% $(git_custom_status) $EPS1'
-
-#PROMPT='%{$fg[cyan]%}[%~% ]%(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
-############## end zsh theme
-
-
-setopt histignorealldups sharehistory
 
 # leave background jobs alone
 setopt NO_HUP
@@ -126,12 +54,9 @@ compinit
 
 # dynamically change the xterm title
 case $TERM in
-    xterm*)
-        precmd () {print -Pn "\e]0;%n@%m\a"}
-        ;;
-esac
-
-case $TERM in
+  xterm*)
+    precmd () {print -Pn "\e]0;%n@%m\a"}
+    ;;
   screen*)
     precmd(){
       # Restore tmux-title to 'zsh'
@@ -160,6 +85,7 @@ export CPLUS_INCLUDE_PATH="$USR/include:$CPLUS_INCLUDE_PATH"
 export LD_LIBRARY_PATH="$USR/lib:/usr/lib64:/usr/lib:/usr/local/lib:$LD_LIBRARY_PATH"
 export MANPATH="$USR/share/man:$MANPATH"
 
+#### JAVA
 # set JAVA_HOME
 java_home_alt=(
     "/opt/java"        # archlinux aur
@@ -203,12 +129,10 @@ export PATH="/home/cllu/.usr/opt/google-cloud-sdk/bin:$PATH"
 export PATH="$USR/opt/google/gsutil:$PATH"
 
 
-
-# aliases
+# additional aliases
 . ~/.aliases
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# recommend from arclinux pycharm
-# ===> https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+# prefer things from brew
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"

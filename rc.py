@@ -12,9 +12,6 @@ RCHOME = os.path.join(HOME, '.rc')
 backup_dir = os.path.join(RCHOME, '.backup' + strftime("_%b%d_%H:%M:%S", gmtime()))
 
 app_config = {
-    'awesome': {
-        '$HOME/.config/awesome': '$RCHOME/awesome'
-    },
     'bash': {
         '$HOME/.bashrc': '$RCHOME/shell/bashrc',
         "$HOME/.aliases": "$RCHOME/shell/aliases",
@@ -58,9 +55,6 @@ app_config = {
         #'$HOME/.local/share/applications/defaults.list': '$RCHOME/xdg/defaults.list',
         # for login managers such as GDM, which will ignore .xinitrc
         #'$HOME/.xsession': '$RCHOME/xinit/xinitrc',
-    },
-    'xscreensaver': {
-        '$HOME/.xscreensaver': '$RCHOME/xscreensaver/xscreensaver'
     },
     'xterm': {
         '$HOME/.Xresources': '$RCHOME/xterm/Xresources'
