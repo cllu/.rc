@@ -1,20 +1,20 @@
 
 # Customize installation
-export RC=$HOME/.rc
+export RCHOME=$HOME/.rc
 
 # load oh-my-zsh
-source $RC/shell/oh-my-zsh.sh
+source $RCHOME/shell/oh-my-zsh.sh
 
 if [[ "$(uname)" == "Darwin" ]]; then
   # Do something under Mac OS X platform        
-  source $RC/shell/env-osx.sh
+  source $RCHOME/shell/env-osx.sh
 elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
   # Do something under Linux platform
-  source $RC/shell/env-linux.sh
+  source $RCHOME/shell/env-linux.sh
 elif [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]]; then
   # Do something under Windows NT platform
-  source $RC/shell/env-windows.sh
+  source $RCHOME/shell/env-windows.sh
 fi
 
 # additional aliases
-source $RC/shell/aliases
+source $RCHOME/shell/aliases
