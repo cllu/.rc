@@ -1,7 +1,6 @@
 This is my config file for various applications.
 
 ## Applications
-- awesome, the window manager
 - curl,
 - emacs
 - git
@@ -10,7 +9,6 @@ This is my config file for various applications.
 - tmux
 - vim
 - xdg, including key remapping, xinitrc etc.
-- xscreensaver
 - xterm
 
 ### Fonts ###

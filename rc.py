@@ -13,8 +13,7 @@ backup_dir = os.path.join(RCHOME, '.backup' + strftime("_%b%d_%H:%M:%S", gmtime(
 
 app_config = {
     'bash': {
-        '$HOME/.bashrc': '$RCHOME/shell/bashrc',
-        "$HOME/.aliases": "$RCHOME/shell/aliases",
+        '$HOME/.bashrc': '$RCHOME/shell/bashrc'
     },
     'bin': {
         '$HOME/.bin': '$RCHOME/bin'
@@ -60,8 +59,7 @@ app_config = {
         '$HOME/.Xresources': '$RCHOME/xterm/Xresources'
     },
     'zsh': {
-        "$HOME/.zshrc": "$RCHOME/shell/zshrc",
-        "$HOME/.aliases": "$RCHOME/shell/aliases",
+        "$HOME/.zshrc": "$RCHOME/shell/zshrc"
     },
 }
 
