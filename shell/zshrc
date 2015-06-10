@@ -5,9 +5,6 @@ export RCHOME=$HOME/.rc
 # Report CPU usage for commands running longer than 10 seconds
 REPORTTIME=10
 
-# load oh-my-zsh
-source $RCHOME/shell/oh-my-zsh.sh
-
 if [[ "$(uname)" == "Darwin" ]]; then
   # Do something under Mac OS X platform        
   source $RCHOME/shell/env-osx.sh
@@ -18,6 +15,11 @@ elif [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]]; then
   # Do something under Windows NT platform
   source $RCHOME/shell/env-windows.sh
 fi
+
+# load oh-my-zsh
+# it is necessary to load oh-my-zsh after platform env settings, since plugins like 
+# virtualenvwrapper relies on certain Python packages
+source $RCHOME/shell/oh-my-zsh.sh
 
 # additional aliases
 source $RCHOME/shell/aliases
