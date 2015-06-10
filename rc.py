@@ -30,7 +30,8 @@ app_config = {
         '$HOME/.emacs.d': '$RCHOME/emacs'
     },
     'git': {
-        '$HOME/.gitconfig': '$RCHOME/git/gitconfig'
+        '$HOME/.gitconfig': '$RCHOME/git/gitconfig',
+        '$HOME/.config/git/ignore': '$RCHOME/git/ignore'
     },
     'gtk': {
         '$HOME/.gtkrc-2.0': '$RCHOME/gtk/gtkrc'
@@ -87,21 +88,22 @@ def remove(path):
         shutil.move(path, backup_dir)
 
 def is_installed(app):
+    """Check if a given config is installed"""
     if app not in app_config.keys():
         return False
 
-    installed = True
     for path, rcfile in app_config[app].items():
         path = path.replace('$HOME', HOME)
         rcfile = rcfile.replace('$RCHOME', RCHOME)
 
         if os.path.realpath(path) != rcfile:
-            installed = False
+            return False
 
-    return installed
+    return True
 
 
 def install(apps):
+    """Install configs"""
     for app in apps:
         if is_installed(app):
             print(app, 'is already installed, skip.')
@@ -118,6 +120,10 @@ def install(apps):
             rcfile = rcfile.replace('$RCHOME', RCHOME)
 
             remove(path)
+            try:
+                os.makedirs(os.path.dirname(path))
+            except OSError:
+                pass
             os.symlink(rcfile, path)
 
 def check_status(apps):
@@ -129,13 +135,13 @@ def main():
     if len(sys.argv) < 2:
         sys.exit("rc.py status|install[ all|<app list>]")
 
-    if sys.argv[1] == 'install':
+    if sys.argv[1] in ('install', 'i'):
         if sys.argv[2] == 'all':
             apps = app_config.keys()
         else:
             apps = sys.argv[1:]
         install(apps)
-    elif sys.argv[1] == 'status':
+    elif sys.argv[1] in ('status', 's'):
         apps = app_config.keys()
         check_status(apps)
 

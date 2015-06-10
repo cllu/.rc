@@ -2,6 +2,9 @@
 # Customize installation
 export RCHOME=$HOME/.rc
 
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
+
 # load oh-my-zsh
 source $RCHOME/shell/oh-my-zsh.sh
 
@@ -18,3 +21,11 @@ fi
 
 # additional aliases
 source $RCHOME/shell/aliases
+
+# Torch
+TORCH_HOME=$HOME/Projects/torch
+if [ -d $TORCH_HOME ]; then 
+  export PATH=$TORCH_HOME/install/bin:$PATH
+  export LD_LIBRARY_PATH=$TORCH_HOME/install/lib:$LD_LIBRARY_PATH
+  export DYLD_LIBRARY_PATH=$TORCH_HOME/install/lib:$DYLD_LIBRARY_PATH
+fi
