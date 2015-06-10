@@ -78,5 +78,11 @@ export PATH="/home/cllu/.usr/opt/google-cloud-sdk/bin:$PATH"
 # gsutil
 export PATH="$USR/opt/google/gsutil:$PATH"
 
+# pip user directory
+PIP_USER_BIN=$HOME/.local/bin
+if [ -d $PIP_USER_BIN ]; then
+  export PATH=$PIP_USER_BIN:$PATH
+fi
+
 # leave background jobs alone
 setopt NO_HUP
