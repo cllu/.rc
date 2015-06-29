@@ -27,3 +27,7 @@ export DOCKER_TLS_VERIFY=1
 ## When rbenv is installed, use it
 # Why choose rbenv over rvm: https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+
+## Required to install node-canvas
+# see https://github.com/Homebrew/homebrew/issues/14123
+export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
