@@ -27,3 +27,10 @@ export DOCKER_TLS_VERIFY=1
 ## Ruby rbenv
 # Why choose rbenv over rvm: https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F
 eval "$(rbenv init -)"
+
+## Android SDK
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+## Go AppEngine
+export PATH="/usr/local/go_appengine:$PATH"
+export GOPATH=$HOME/go
