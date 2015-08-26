@@ -26,8 +26,10 @@ export DOCKER_TLS_VERIFY=1
 
 ## When rbenv is installed, use it
 # Why choose rbenv over rvm: https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F
-eval "$(rbenv init -)"
-command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+if command -v rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+  command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+fi
 
 ## Android SDK
 export ANDROID_HOME=/usr/local/opt/android-sdk
