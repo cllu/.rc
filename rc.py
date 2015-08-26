@@ -26,9 +26,6 @@ app_config = {
     'curl': {
         '$HOME/.curlrc': '$RCHOME/curl/curlrc'
     },
-    'emacs': {
-        '$HOME/.emacs.d': '$RCHOME/emacs'
-    },
     'git': {
         '$HOME/.gitconfig': '$RCHOME/git/gitconfig',
         '$HOME/.config/git/ignore': '$RCHOME/git/ignore'

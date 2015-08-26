@@ -2,7 +2,6 @@ This is my config file for various applications.
 
 ## Applications
 - curl,
-- emacs
 - git
 - shells, including csh/bash/zsh
 - tmux

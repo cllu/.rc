@@ -1,8 +1,0 @@
-(:name evil-matchit
-       :website "http://github.com/redguardtoo/evil-matchit"
-       :description "Vim matchit ported into Emacs"
-
-       :type github
-       :pkgname "redguardtoo/evil-matchit"
-       :features evil-matchit
-       :depends evil)
