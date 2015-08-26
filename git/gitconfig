@@ -3,3 +3,7 @@
         email = hi@chunlianglyu.com
 [push]
         default = simple
+[core]
+        excludesfile = ~/.config/git/ignore
+[color]
+	ui = auto

@@ -2,8 +2,8 @@
 # Customize installation
 export RCHOME=$HOME/.rc
 
-# load oh-my-zsh
-source $RCHOME/shell/oh-my-zsh.sh
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
 
 if [[ "$(uname)" == "Darwin" ]]; then
   # Do something under Mac OS X platform        
@@ -16,5 +16,18 @@ elif [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]]; then
   source $RCHOME/shell/env-windows.sh
 fi
 
+# load oh-my-zsh
+# it is necessary to load oh-my-zsh after platform env settings, since plugins like 
+# virtualenvwrapper relies on certain Python packages
+source $RCHOME/shell/oh-my-zsh.sh
+
 # additional aliases
 source $RCHOME/shell/aliases
+
+# Torch
+TORCH_HOME=$HOME/Projects/torch
+if [ -d $TORCH_HOME ]; then 
+  export PATH=$TORCH_HOME/install/bin:$PATH
+  export LD_LIBRARY_PATH=$TORCH_HOME/install/lib:$LD_LIBRARY_PATH
+  export DYLD_LIBRARY_PATH=$TORCH_HOME/install/lib:$DYLD_LIBRARY_PATH
+fi
