@@ -1,6 +1,7 @@
-ssh/known_hosts
-vim/.netrwhist
-.backup*
+/ssh/known_hosts
+/vim/.netrwhist
+/.backup*
+/shell/env-secret.sh
 
 .idea
 *.iml

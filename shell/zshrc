@@ -16,6 +16,8 @@ elif [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]]; then
   source $RCHOME/shell/env-windows.sh
 fi
 
+source $RCHOME/shell/env-secret.sh
+
 # load oh-my-zsh
 # it is necessary to load oh-my-zsh after platform env settings, since plugins like 
 # virtualenvwrapper relies on certain Python packages
