@@ -48,6 +48,12 @@ alias i='ipython'
 alias i3='ipython3'
 alias psg='ps aux|grep'
 
+alias d="docker"
+alias dc="docker-compose"
+alias dm="docker-machine"
+
+alias tree="tree -I 'venv|__pycache__|.git'"
+
 #alias tree='tree -I__pycache__'
 
 alias httphere="python3 -m http.server"

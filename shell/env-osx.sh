@@ -32,6 +32,7 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 ## Go AppEngine
 export PATH="/usr/local/go_appengine:$PATH"
 export GOPATH=$HOME/go
+export PATH="$GOPATH/bin:$PATH"
 
 ## Required to install node-canvas
 # see https://github.com/Homebrew/homebrew/issues/14123
