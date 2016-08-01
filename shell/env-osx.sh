@@ -36,3 +36,6 @@ export GOPATH=$HOME/go
 ## Required to install node-canvas
 # see https://github.com/Homebrew/homebrew/issues/14123
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+
+# brew Python3
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
