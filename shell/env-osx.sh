@@ -19,11 +19,6 @@ export LANG=en_US.UTF-8
 ## Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-## Boot2Docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/cllu/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 ## When rbenv is installed, use it
 # Why choose rbenv over rvm: https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F
 if command -v rbenv >/dev/null 2>&1; then
