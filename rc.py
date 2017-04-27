@@ -18,20 +18,12 @@ app_config = {
     'bin': {
         '$HOME/.bin': '$RCHOME/bin'
     },
-    'csh': {
-        # used to get rid of csh in seis machines.
-        '$HOME/.login': '$RCHOME/shell/login',
-        '$HOME/.cshrc': '$RCHOME/shell/cshrc'
-    },
     'curl': {
         '$HOME/.curlrc': '$RCHOME/curl/curlrc'
     },
     'git': {
         '$HOME/.gitconfig': '$RCHOME/git/gitconfig',
         '$HOME/.config/git/ignore': '$RCHOME/git/ignore'
-    },
-    'gtk': {
-        '$HOME/.gtkrc-2.0': '$RCHOME/gtk/gtkrc'
     },
     'R': {
         '$HOME/.Renviron': '$RCHOME/R/Renviron'
@@ -42,19 +34,6 @@ app_config = {
     'vim': {
         '$HOME/.vimrc': '$RCHOME/vim/vimrc',
         '$HOME/.vim': '$RCHOME/vim'
-    },
-    'xdg': {
-        '$HOME/.xinitrc': '$RCHOME/xdg/xinitrc',
-        '$HOME/.xprofile': '$RCHOME/xdg/xprofile',
-        '$HOME/.Xmodmap': '$RCHOME/xdg/Xmodmap',
-        # there is no consistent implementation currently
-        #'$HOME/.local/share/applications/mimeapps.list': '$RCHOME/xdg/mimeapps.list',
-        #'$HOME/.local/share/applications/defaults.list': '$RCHOME/xdg/defaults.list',
-        # for login managers such as GDM, which will ignore .xinitrc
-        #'$HOME/.xsession': '$RCHOME/xinit/xinitrc',
-    },
-    'xterm': {
-        '$HOME/.Xresources': '$RCHOME/xterm/Xresources'
     },
     'zsh': {
         "$HOME/.zshrc": "$RCHOME/shell/zshrc"
