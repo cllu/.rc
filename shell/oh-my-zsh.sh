@@ -2,8 +2,12 @@
 # curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 export ZSH=$HOME/.oh-my-zsh
 
+# Custom oh-my-zsh stuff
+ZSH_CUSTOM=$HOME/.rc/shell/zsh_custom
+
 # Set name of the theme to load.
 ZSH_THEME="robbyrussell"
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -26,7 +30,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Path to your oh-my-zsh installation.
-plugins=(git git-extras supervisor systemd celery npm pip virtualenvwrapper docker docker-compose)
+plugins=(git git-extras supervisor systemd celery npm pip virtualenvwrapper docker docker-compose svn)
 
 # Use vim keybindings
 #bindkey -v
