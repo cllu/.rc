@@ -1,5 +1,8 @@
 # On OSX, I install things using Homebrew
 
+# some applications require valid $JAVA_HOME
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 # The OSX way for ls colors.
 export CLICOLOR=1
 export LSCOLORS="gxfxcxdxbxegedabagacad"
