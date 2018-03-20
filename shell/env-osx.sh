@@ -26,9 +26,6 @@ if command -v rbenv >/dev/null 2>&1; then
   command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
 fi
 
-## Android SDK
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
 ## Go AppEngine
 export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
 export GOPATH=$HOME/go
