@@ -20,16 +20,10 @@ alias l='ls -l'
 alias ll='ls -l'
 alias lsa='ls -alh'
 
-# editor default to emacs
-alias e='emacsclient -t'
-alias ec='emacsclient -c'
-alias eckill='emacsclient -e "(kill-emacs)"'
-alias ecdaemon='emacs --daemon'
-alias ecreload='emacsclient -e "(load-file \"~/.emacs.d/init.el\")"'
-
 alias vi='vim'
 
 # git alias
+alias g='git'
 alias ga='git add '
 alias gs='git status'
 alias gd='git diff'
@@ -51,6 +45,7 @@ alias psg='ps aux|grep'
 alias d="docker"
 alias dc="docker-compose"
 alias dm="docker-machine"
+alias k="kubectl"
 
 alias tree="tree -I 'venv|__pycache__|.git'"
 
@@ -92,14 +87,3 @@ utf8() {
   mv $1.tmp $1
 }
 
-
-mkdir4sbt() {
-  mkdir -p src/{main,test}/{java,resources,scala}
-  mkdir lib project target
-
-  echo 'name := "ScalaProject"
-
-version := "0.0.1"
-
-scalaVersion := "2.10.3"' > build.sbt
-}

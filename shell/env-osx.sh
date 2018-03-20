@@ -16,9 +16,6 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-## Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 ## When rbenv is installed, use it
 # Why choose rbenv over rvm: https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F
 if command -v rbenv >/dev/null 2>&1; then
@@ -30,7 +27,7 @@ fi
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
 ## Go AppEngine
-export PATH="/usr/local/go_appengine:$PATH"
+export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
