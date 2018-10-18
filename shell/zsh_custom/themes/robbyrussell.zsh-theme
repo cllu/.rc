@@ -1,12 +1,14 @@
+# show user and hostname on SSH sessions
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    local userhost="%n@%m "
+else
+    local userhost=""
+fi
+
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)$(svn_prompt_info)%{$reset_color%}'
+PROMPT='${userhost}${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
-
-ZSH_THEME_SVN_PROMPT_PREFIX="%{$fg_bold[blue]%}svn:(%{$fg[red]%}"
-ZSH_THEME_SVN_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_SVN_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗ "
-ZSH_THEME_SVN_PROMPT_CLEAN="%{$fg[blue]%}) "
