@@ -1,6 +1,6 @@
 # show user and hostname on SSH sessions
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    local userhost="%n@%m "
+    local userhost="%{$fg_bold[magenta]%}%n@%m %{$reset_color%}"
 else
     local userhost=""
 fi
