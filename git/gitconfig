@@ -1,9 +1,14 @@
 [user]
-        name = Chunliang Lyu
-        email = hi@chunlianglyu.com
+	name = Chunliang Lyu
+	email = hi@chunlianglyu.com
+[pull]
+	rebase = true
 [push]
-        default = simple
+	default = simple
 [core]
-        excludesfile = ~/.config/git/ignore
+	excludesfile = ~/.config/git/ignore
 [color]
 	ui = auto
+[gitreview]
+	remote = origin
+	username = cllu
