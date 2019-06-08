@@ -37,8 +37,7 @@ if [ -d $TORCH_HOME ]; then
 fi
 
 # Use pyenv to mange Python versions on both Linux and macOS
-if [ -f $HOME/.pyenv/bin/pyenv ]; then
-  PATH="$HOME/.pyenv/shims:$HOME/.pyenv/bin:$PATH"
+if type pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
 

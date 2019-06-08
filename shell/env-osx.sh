@@ -40,3 +40,8 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # brew Python3
 VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+
+# to be able to install Python with pyenv, both zlib and sqlite need to be installed with Homebrew
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib -L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig /usr/local/opt/sqlite/lib/pkgconfig"

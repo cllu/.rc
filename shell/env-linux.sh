@@ -84,5 +84,11 @@ if [ -d $PIP_USER_BIN ]; then
   export PATH=$PIP_USER_BIN:$PATH
 fi
 
+# pyenv is installed in home directory by default
+if [ -f $HOME/.pyenv/bin/pyenv ]; then
+  # the initialization in ./zshrc file (for both macOS and linux)
+  PATH="$HOME/.pyenv/bin:$PATH"
+fi
+
 # leave background jobs alone
 setopt NO_HUP
