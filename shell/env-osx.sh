@@ -35,5 +35,8 @@ export PATH="$GOPATH/bin:$PATH"
 # see https://github.com/Homebrew/homebrew/issues/14123
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
+## mysql-client from Homebrew was not symlinked into /usr/local since it conflicts with mysql, however I won't install mysql locally
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
 # brew Python3
 VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
