@@ -37,7 +37,10 @@ if [ -d $TORCH_HOME ]; then
 fi
 
 # Use pyenv to mange Python versions on both Linux and macOS
-if type pyenv > /dev/null; then
+# pyenv is a submodule that may haven't been checked out
+if [ -f $RCHOME/vendor/pyenv/bin/pyenv ]; then
+  # the initialization in ./zshrc file (for both macOS and linux)
+  PATH="$RCHOME/vendor/pyenv/bin:$PATH"
   eval "$(pyenv init -)"
 fi
 

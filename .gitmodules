@@ -1,0 +1,3 @@
+[submodule "vendor/pyenv"]
+	path = vendor/pyenv
+	url = https://github.com/pyenv/pyenv.git
