@@ -30,7 +30,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Path to your oh-my-zsh installation.
-plugins=(git git-extras systemd npm pip virtualenvwrapper docker docker-compose kubectl)
+plugins=(git virtualenvwrapper docker docker-compose kubectl)
 
 # Use vim keybindings
 #bindkey -v
