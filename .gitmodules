@@ -1,3 +1,6 @@
 [submodule "vendor/pyenv"]
 	path = vendor/pyenv
 	url = https://github.com/pyenv/pyenv.git
+[submodule "vendor/nvm"]
+	path = vendor/nvm
+	url = https://github.com/nvm-sh/nvm.git

@@ -44,6 +44,13 @@ if [ -f $RCHOME/vendor/pyenv/bin/pyenv ]; then
   eval "$(pyenv init -)"
 fi
 
+# Use nvm to manage node versions
+if [ -f $RCHOME/vendor/nvm/nvm.sh ]; then
+    export NVM_DIR="$RCHOME/vendor/nvm"
+    source "$NVM_DIR/nvm.sh"
+    source "$NVM_DIR/bash_completion"
+fi
+
 export EDITOR=vim
 
 PATH="/Users/cllu/perl5/bin${PATH:+:${PATH}}"; export PATH;
