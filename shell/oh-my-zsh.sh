@@ -1,9 +1,8 @@
-# Install oh-my-zsh by curl
-# curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-export ZSH=$HOME/.oh-my-zsh
+# oh-my-zsh is a Git submodule in vendor/oh-my-zsh directory
+export ZSH=$RCHOME/vendor/oh-my-zsh
 
 # Custom oh-my-zsh stuff
-ZSH_CUSTOM=$HOME/.rc/shell/zsh_custom
+ZSH_CUSTOM=$RCHOME/shell/zsh_custom
 
 # Set name of the theme to load.
 ZSH_THEME="robbyrussell"
@@ -12,8 +11,8 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# disable bi-weekly auto-update checks, we will manually upgrade the Git submodule
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
