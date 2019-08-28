@@ -39,8 +39,9 @@ fi
 # Use pyenv to mange Python versions on both Linux and macOS
 # pyenv is a submodule that may haven't been checked out
 if [ -f $RCHOME/vendor/pyenv/bin/pyenv ]; then
+  export PYENV_ROOT="$RCHOME/vendor/pyenv"
   # the initialization in ./zshrc file (for both macOS and linux)
-  PATH="$RCHOME/vendor/pyenv/bin:$PATH"
+  PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
 
