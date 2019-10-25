@@ -29,7 +29,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Path to your oh-my-zsh installation.
-plugins=(git virtualenvwrapper docker docker-compose kubectl)
+plugins=(git virtualenvwrapper docker docker-compose kubectl yarn)
 
 # Use vim keybindings
 #bindkey -v
