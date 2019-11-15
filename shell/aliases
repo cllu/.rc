@@ -51,7 +51,7 @@ alias tree="tree -I 'venv|__pycache__|.git'"
 
 #alias tree='tree -I__pycache__'
 
-alias httphere="python3 -m http.server"
+alias httphere="python3 -m http.server --bind 127.0.0.1"
 
 # make a new directory and change pwd to it
 function mcd()
