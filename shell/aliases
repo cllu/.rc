@@ -1,6 +1,6 @@
 # ls colors
 if ls --color=auto &>/dev/null; then
-  eval `dircolors -b`
+  # eval `dircolors -b`
   alias ls="ls --color=auto -F"
 else
   alias ls="ls -F"
