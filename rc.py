@@ -25,9 +25,6 @@ app_config = {
         '$HOME/.gitconfig': '$RCHOME/git/gitconfig',
         '$HOME/.config/git/ignore': '$RCHOME/git/ignore'
     },
-    'R': {
-        '$HOME/.Renviron': '$RCHOME/R/Renviron'
-    },
     'tmux': {
         '$HOME/.tmux.conf': '$RCHOME/tmux/tmux.conf'
     },
