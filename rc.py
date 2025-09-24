@@ -12,9 +12,6 @@ RCHOME = os.path.join(HOME, '.rc')
 backup_dir = os.path.join(RCHOME, '.backup' + strftime("_%b%d_%H:%M:%S", gmtime()))
 
 app_config = {
-    'bash': {
-        '$HOME/.bashrc': '$RCHOME/shell/bashrc'
-    },
     'curl': {
         '$HOME/.curlrc': '$RCHOME/curl/curlrc'
     },
