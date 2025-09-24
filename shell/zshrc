@@ -6,18 +6,15 @@ export RCHOME=$HOME/.rc
 REPORTTIME=10
 
 if [[ "$(uname)" == "Darwin" ]]; then
-  # Do something under Mac OS X platform        
+  # macOS-specific settings
   source $RCHOME/shell/env-osx.sh
 elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
-  # Do something under Linux platform
+  # Linux-specific settings
   source $RCHOME/shell/env-linux.sh
-elif [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]]; then
-  # Do something under Windows NT platform
-  source $RCHOME/shell/env-windows.sh
 fi
 
-if [ -f $RCHOME/shell/env-secret.sh ]; then
-  source $RCHOME/shell/env-secret.sh
+if [ -f $RCHOME/shell/env-local.sh ]; then
+  source $RCHOME/shell/env-local.sh
 fi
 
 # load oh-my-zsh
@@ -27,14 +24,6 @@ source $RCHOME/shell/oh-my-zsh.sh
 
 # additional aliases
 source $RCHOME/shell/aliases
-
-# Torch
-TORCH_HOME=$HOME/Projects/torch
-if [ -d $TORCH_HOME ]; then 
-  export PATH=$TORCH_HOME/install/bin:$PATH
-  export LD_LIBRARY_PATH=$TORCH_HOME/install/lib:$LD_LIBRARY_PATH
-  export DYLD_LIBRARY_PATH=$TORCH_HOME/install/lib:$DYLD_LIBRARY_PATH
-fi
 
 # Use pyenv to mange Python versions on both Linux and macOS
 # pyenv is a submodule that may haven't been checked out
@@ -56,12 +45,15 @@ fi
 
 export EDITOR=vim
 
-PATH="/Users/cllu/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/cllu/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/cllu/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/cllu/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/cllu/perl5"; export PERL_MM_OPT;
-
 # customize ripgrep
 export RIPGREP_CONFIG_PATH=$RCHOME/ripgrep/rc
 
+# rustup installs things in ~/.cargo/bin
+if [ -d $HOME/.cargo/bin ]; then
+  export PATH=$HOME/.cargo/bin:$PATH
+fi
+
+# uv is installed in ~/.local/bin
+if [ -d $HOME/.local/bin ]; then
+  export PATH=$HOME/.local/bin:$PATH
+fi

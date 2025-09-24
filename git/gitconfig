@@ -8,8 +8,14 @@
 	autoSetupRemote = true
 [core]
 	excludesfile = ~/.config/git/ignore
+	autocrlf = input
 [color]
 	ui = auto
 [gitreview]
 	remote = origin
 	username = cllu
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

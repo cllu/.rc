@@ -34,6 +34,9 @@ alias grm='git rm'
 alias gca='git commit -am '
 alias gcm='git commit -m '
 
+alias p='pnpm'
+alias pc='pnpm check:write'
+
 # handy stuff
 alias c="clear"
 alias h='head'

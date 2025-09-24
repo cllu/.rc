@@ -21,29 +21,13 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-## When rbenv is installed, use it
-# Why choose rbenv over rvm: https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F
-if command -v rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init -)"
-  command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
-fi
+## Google Cloud SDK is manually installed to /opt folder
+export PATH="/opt/google-cloud-sdk/bin:$PATH"
 
 ## Go AppEngine
-export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
 ## Required to install node-canvas
 # see https://github.com/Homebrew/homebrew/issues/14123
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
-
-## mysql-client from Homebrew was not symlinked into /usr/local since it conflicts with mysql, however I won't install mysql locally
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
-# brew Python3
-VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-
-# to be able to install Python with pyenv, both zlib and sqlite need to be installed with Homebrew
-export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib -L/usr/local/opt/sqlite/lib"
-export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include"
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig /usr/local/opt/sqlite/lib/pkgconfig"
