@@ -15,9 +15,6 @@ app_config = {
     'bash': {
         '$HOME/.bashrc': '$RCHOME/shell/bashrc'
     },
-    'bin': {
-        '$HOME/.bin': '$RCHOME/bin'
-    },
     'curl': {
         '$HOME/.curlrc': '$RCHOME/curl/curlrc'
     },
